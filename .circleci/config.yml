@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            sudo ansible-playbook --user=ubuntu main.yml  
+            ansible-playbook --user=ubuntu main.yml  
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
