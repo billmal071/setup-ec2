@@ -37,7 +37,6 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          # You can get this ID in the section where you registered the SSH Key
           fingerprints: ["02:2b:53:b7:a0:8f:13:a5:4c:0d:a0:ed:90:5d:e1:f9"]
       - run:
           name: Install Ansible
@@ -46,7 +45,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook main.yml
+            ansible-playbook main.yml --private-key ${ansiblekey}
 
   smoke_test:
     docker:
