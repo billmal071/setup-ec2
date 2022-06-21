@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook main.yml --private-key ansiblekey
+            ansible-playbook main.yml --private-key {{ ansiblekey }}
 
   smoke_test:
     docker:
@@ -72,11 +72,10 @@ jobs:
 workflows:
   stack:
     jobs:
-      - create_infrastructure
+      # - create_infrastructure
       - configure_infrastructure:
-          requires:
-            - create_infrastructure
-      - smoke_test:
-          requires:
-            - configure_infrastructure
-
+          # requires:
+          #   - create_infrastructure
+      # - smoke_test:
+      #     requires:
+      #       - configure_infrastructure
