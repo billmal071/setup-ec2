@@ -20,7 +20,7 @@ Resources:
   WebsiteBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref "s3Bucket"
+      Bucket: !Ref "s3bucket"
       PolicyDocument:
         Statement:
           - Sid: PublicReadForGetBucketObjects
