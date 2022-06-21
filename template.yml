@@ -13,7 +13,7 @@ Resources:
       KeyName: ansiblekey
       # Change this, as applicable to you
       # You may need to find out what instance types are available in your region - use https://cloud-images.ubuntu.com/locator/ec2/
-      ImageId: "ami-0df32f8302dfe67df"
+      ImageId: "ami-09d56f8956ab235b3"
       InstanceType: t3.micro
 
   InstanceSecurityGroup:
