@@ -17,35 +17,35 @@ commands:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  # create_infrastructure:
-  #   docker:
-  #     - image: amazon/aws-cli
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Create Cloudformation Stack
-  #         command: |
-  #           aws cloudformation deploy \
-  #             --template-file template.yml \
-  #             --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
-  #             --region us-east-1
+  create_infrastructure:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run:
+          name: Create Cloudformation Stack
+          command: |
+            aws cloudformation deploy \
+              --template-file template.yml \
+              --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
+              --region us-east-1
 
-  # configure_infrastructure:
-  #   docker:
-  #     - image: python:3.7-alpine3.11
-  #   steps:
-  #     - checkout
-  #     - add_ssh_keys:
-  #         # You can get this ID in the section where you registered the SSH Key
-  #         fingerprints: ["02:2b:53:b7:a0:8f:13:a5:4c:0d:a0:ed:90:5d:e1:f9"]
-  #     - run:
-  #         name: Install Ansible
-  #         command: |
-  #           apk add --update ansible
-  #     - run:
-  #         name: Run Playbook and Configure server
-  #         command: |
-  #           ansible-playbook main.yml
+  configure_infrastructure:
+    docker:
+      - image: python:3.7-alpine3.11
+    steps:
+      - checkout
+      - add_ssh_keys:
+          # You can get this ID in the section where you registered the SSH Key
+          fingerprints: ["02:2b:53:b7:a0:8f:13:a5:4c:0d:a0:ed:90:5d:e1:f9"]
+      - run:
+          name: Install Ansible
+          command: |
+            apk add --update ansible
+      - run:
+          name: Run Playbook and Configure server
+          command: |
+            ansible-playbook main.yml --private-key ansiblekey
 
   smoke_test:
     docker:
@@ -71,6 +71,6 @@ jobs:
 workflows:
   stack:
     jobs:
-      # - create_infrastructure
-      # - configure_infrastructure
+      - create_infrastructure
+      - configure_infrastructure
       - smoke_test
