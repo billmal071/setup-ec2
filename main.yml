@@ -1,7 +1,7 @@
 ---
-name: mine
-hosts: all
-become: true
-user: ubuntu
-roles:
-  - setup
+- name: mine
+  hosts: all
+  become: true
+  user: ubuntu
+  roles:
+    - setup
