@@ -64,7 +64,7 @@ jobs:
               return 1
             fi
       - destroy_environment:
-          when: on_fail
+        when: on_fail
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
