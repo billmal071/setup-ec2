@@ -1,3 +1,5 @@
 ---
-- name: "index"
-  
+- name: "install nodejs"
+  apt:
+    name: "nodejs"
+    state: latest
