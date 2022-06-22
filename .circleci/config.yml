@@ -38,8 +38,6 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints: ["73:82:c4:51:17:67:d3:3b:73:b9:de:4c:10:29:92:a0"]
-      - attach_workspace:
-          at: .
       - run:
           name: Install Ansible
           command: |
@@ -47,7 +45,6 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            cat ~/.ssh/id_rsa_7382c4511767d33b73b9de4c102992a0
             ansible-playbook main.yml --key-file ~/.ssh/id_rsa_7382c4511767d33b73b9de4c102992a0
 
   smoke_test:
