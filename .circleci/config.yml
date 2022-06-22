@@ -47,7 +47,7 @@ jobs:
           command: |
             ansible-playbook main.yml --key-file ~/.ssh/id_rsa_022b53b7a08f13a54c0da0ed905de1f9
 
-  smoke_test
+  smoke_test:
     docker:
       - image: amazon/aws-cli
     steps:
