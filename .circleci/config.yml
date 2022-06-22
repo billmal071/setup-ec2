@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook main.yml --key-file ~/.ssh/id_rsa_022b53b7a08f13a54c0da0ed905de1f9
+            ansible-playbook main.yml
 
   smoke_test:
     docker:
