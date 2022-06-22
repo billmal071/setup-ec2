@@ -4,6 +4,7 @@
   become: true
   become_method: sudo
   user: ubuntu
+  gather_facts: no
   pre_tasks:
     - name: "update apt packages."
       become: true
