@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook main.yml
+            ansible-playbook main.yml --key-file ~/.ssh/id_rsa_022b53b7a08f13a54c0da0ed905de1f9
 
   smoke_test:
     docker:
@@ -132,17 +132,17 @@ jobs:
 workflows:
   stack:
     jobs:
-      - create_and_deploy_front_end
-      - promote_to_production:
-          requires: 
-            - create_and_deploy_front_end
-      - get_last_deployment_id
-      - clean_up_old_front_end:
-          requires:
-            - get_last_deployment_id
-            - promote_to_production
+      # - create_and_deploy_front_end
+      # - promote_to_production:
+      #     requires: 
+      #       - create_and_deploy_front_end
+      # - get_last_deployment_id
+      # - clean_up_old_front_end:
+      #     requires:
+      #       - get_last_deployment_id
+      #       - promote_to_production
       # - create_infrastructure
-      # - configure_infrastructure:
+      - configure_infrastructure
       #     requires:
       #       - create_infrastructure
       # - smoke_test:
