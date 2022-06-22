@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook -i inventory main.yml --key-file ~/.ssh/id_rsa_7382c4511767d33b73b9de4c102992a0
+            ansible-playbook main.yml
 
   smoke_test:
     docker:
