@@ -45,6 +45,8 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
+            cd ~/.ssh
+            ls -la
             ansible-playbook main.yml
 
   smoke_test:
