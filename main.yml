@@ -11,14 +11,14 @@
       apt:
         update_cache: true
       changed_when: False
-      when: ansible_distribution == 'Ubuntu'
+      # when: ansible_distribution == 'Ubuntu'
 
     - name: "upgrade packages"
       become: true
       apt:
         name: "*"
         state: latest
-      when: ansible_distribution == 'Ubuntu'
+      # when: ansible_distribution == 'Ubuntu'
 
   roles:
     - setup
