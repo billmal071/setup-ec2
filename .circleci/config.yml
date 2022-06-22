@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            cd ~/ssh
+            cd ~/.ssh
             ls -la
             cd ~
             ansible-playbook main.yml
