@@ -3,7 +3,6 @@
   hosts: all
   become: true
   become_method: sudo
-  become_user: root
   user: ubuntu
   pre_tasks:
     - name: "update apt packages."

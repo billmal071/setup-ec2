@@ -44,13 +44,8 @@ jobs:
             apk add --update ansible
       - run:
           name: Run Playbook and Configure server
-          command: | 
-            cd ~/.ssh
-            ls -la
-            cat known_hosts
-            
+          command:
             ansible-playbook main.yml
-            
 
   smoke_test:
     docker:
