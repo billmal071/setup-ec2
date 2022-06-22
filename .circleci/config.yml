@@ -46,7 +46,10 @@ jobs:
             apk add --update ansible
       - run:
           name: Run Playbook and Configure server
-          command: ansible-playbook main.yml
+          command: |
+            cd ~/.ssh
+            ls -la
+            ansible-playbook main.yml
 
   smoke_test:
     docker:
