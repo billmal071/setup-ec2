@@ -47,6 +47,8 @@ jobs:
           command: | 
             cd ~/.ssh
             ls -la
+            cat known_hosts
+            
             ansible-playbook main.yml
             
 
